@@ -19,29 +19,29 @@
 
 ## 项目架构
 
-![image-20220821105158012]
+![image-20220821105158012](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105158012.png)
 
 ## 项目截图
 
 ### 展示了全国及各省份的疫情数据
 
-![image-20220821105247335](C:\Users\26057\Desktop\works\大数据实训\实训资料\COVID-19\_v_images\image-20220821105247335.png)
+![image-20220821105247335](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105247335.png)
 
 ### 展示了各省份疫情境外输入数据
 
-![image-20220821105429053](C:\Users\26057\Desktop\works\大数据实训\实训资料\COVID-19\_v_images\image-20220821105429053.png)
+![image-20220821105429053](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105429053.png)
 
 ### 展示了全国每日疫情趋势
 
-![image-20220821105441290](C:\Users\26057\Desktop\works\大数据实训\实训资料\COVID-19\_v_images\image-20220821105441290.png)
+![image-20220821105441290](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105441290.png)
 
 ### 展示了各省份城市的疫情数据
 
-![image-20220821105450383](C:\Users\26057\Desktop\works\大数据实训\实训资料\COVID-19\_v_images\image-20220821105450383.png)
+![image-20220821105450383](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105450383.png)
 
 ### 展示了搜索城市疫情数据
 
-![image-20220821105505547](C:\Users\26057\Desktop\works\大数据实训\实训资料\COVID-19\_v_images\image-20220821105505547.png)
+![image-20220821105505547](https://github.com/moyutata/COVID-19/blob/main/_v_images/image-20220821105505547.png)
 
 ## 项目改进
 
