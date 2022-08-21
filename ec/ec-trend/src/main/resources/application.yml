@@ -1,0 +1,18 @@
+server:
+  port: 8084
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: ectrend
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/covid19?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#mybatis:
+#  type-aliases-package: jmu.lsk.entity
+#  mapper-locations: classpath:mapper/**.xml
+

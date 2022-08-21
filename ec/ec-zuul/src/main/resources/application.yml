@@ -1,0 +1,30 @@
+server:
+  port: 8005
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: eczuul
+zuul:
+  retryable: true
+  routes:
+    foreign:
+      path: /foreign/**
+      serviceId: ECFOREIGN
+    nation:
+      path: /nation/**
+      serviceId: ECNATION
+    province:
+      path: /province/**
+      serviceId: ECPROVINCE
+    trend:
+      path: /trend/**
+      serviceId: ECTREND
+    user:
+      path: /user/**
+      serviceId: ECUSER
+    city:
+      path: /city/**
+      serviceId: ECCITY
