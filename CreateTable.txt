@@ -1,0 +1,56 @@
+CREATE TABLE `country` (
+  `datetime` varchar(20) NOT NULL DEFAULT '',
+  `currentConfirmedCount` bigint DEFAULT '0',
+  `currentConfirmedIncr` bigint DEFAULT '0',
+  `confirmedCount` bigint DEFAULT '0',
+  `confirmedIncr` bigint DEFAULT '0',
+  `curedCount` bigint DEFAULT '0',
+  `curedIncr` bigint DEFAULT '0',
+  `deadCount` bigint DEFAULT '0',
+  `deadIncr` bigint DEFAULT '0',
+  PRIMARY KEY (`datetime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `province` (
+  `datetime` varchar(20) NOT NULL DEFAULT '',
+  `locationId` int NOT NULL DEFAULT '0',
+  `provinceShortName` varchar(20) DEFAULT '',
+  `currentConfirmedCount` int DEFAULT '0',
+  `confirmedCount` int DEFAULT '0',
+  `suspectedCount` int DEFAULT '0',
+  `curedCount` int DEFAULT '0',
+  `deadCount` int DEFAULT '0',
+  PRIMARY KEY (`datetime`,`locationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `countryTrend` (
+  `id` int NOT NULL auto_increment,
+  `dateId` varchar(20) NOT NULL DEFAULT '',
+  `confirmedIncr` bigint DEFAULT '0',
+  `confirmedCount` bigint DEFAULT '0',
+  `suspectedCount` bigint DEFAULT '0',
+  `curedCount` bigint DEFAULT '0',
+  `deadCount` bigint DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `abroad` (
+  `datetime` varchar(20) NOT NULL DEFAULT '',
+  `provinceShortName` varchar(20) NOT NULL DEFAULT '',
+  `pid` int DEFAULT '0',
+  `confirmedCount` bigint DEFAULT '0',
+  PRIMARY KEY (`datetime`,`provinceShortName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `city` (
+  `datetime` varchar(20) NOT NULL DEFAULT '',
+  `locationId` int NOT NULL DEFAULT '0',
+  `provinceShortName` varchar(20) NOT NULL DEFAULT '',
+  `cityName` varchar(20) NOT NULL DEFAULT '',
+  `currentConfirmedCount` bigint NOT NULL DEFAULT '0',
+  `confirmedCount` bigint DEFAULT '0',
+  `suspectedCount` int DEFAULT '0',
+  `curedCount` int DEFAULT '0',
+  `deadCount` int DEFAULT '0',
+  PRIMARY KEY (`datetime`,`provinceShortName`,`cityName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
