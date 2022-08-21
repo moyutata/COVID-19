@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>疫情大数据</title>
+		<script src="js/echarts.js"></script>
+		<script src="js/china.js"></script>
+		<script src="js/jquery.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#main {
+				width: 600px;
+				height: 450px;
+				margin: 150px auto;
+				border: 1px solid #ddd;
+			}
+			/*默认长宽比0.75*/
+			
+			.center {
+				margin: auto;
+				width: 70%;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div>
+			<h2 align="center">疫情大数据平台</h2>
+		</div>
+		<br>
+		<div id="time_line" style="width: 1300px;height:500px;" class="center"></div>
+		<br>
+		<hr>
+		<script>
+			if(localStorage.token==""){
+				alert("您未登陆，请先登陆");
+				window.location.href = "./login.html";
+			}
+			/*--------------------时间趋势折线图-----------------------------*/
+			var myLineChart = echarts.init(document.getElementById("time_line"));
+			// setInterval(function() {  //定时刷新
+			// 	tendency();
+			// }, 5000);
+			function tendency(data, xdata) {
+				myLineChart.setOption({
+					title: {
+						text: '疫情趋势'
+					},
+					tooltip: {
+						trigger: 'axis'
+					},
+					legend: {
+						data: ['新增确诊', '累计确诊', '疑似病例', '累计治愈', '累计死亡']
+					},
+					dataset: [{
+						// 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
+						dimensions: ['dateId', '新增确诊', '累计确诊', '疑似病例', '累计治愈', '累计死亡'],
+						source: data
+					}],
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					toolbox: {
+						feature: {
+							saveAsImage: {}
+						}
+					},
+					xAxis: [{
+						type: 'category',
+						boundaryGap: false,
+						data: xdata
+					}],
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+							type: 'line'
+						},
+						{
+							type: 'line'
+						},
+						{
+							type: 'line'
+						},
+						{
+							type: 'line'
+						},
+						{
+							type: 'line'
+						}
+					]
+				});
+			}
+			var xdata = []; //x轴
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8005/trend/getNationTimeData",
+				async: true,
+				dataType: 'json', //返回数据形式为json
+				beforeSend: function(XMLHttpRequest) {
+					XMLHttpRequest.setRequestHeader("token", localStorage.token);
+				},
+				success: function(res) {
+					var arr = res.data;
+					for(var i = arr.length-1; i >=0; i--) {
+						xdata.push(arr[i].dateId);
+					}
+					tendency(res.data, xdata);
+				},
+				error: function(res) {
+					alert("出现错误");
+				}
+			});
+		</script>
+	</body>
+
+</html>
