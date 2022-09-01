@@ -47,7 +47,7 @@
 
 <details>
   <summary>数据库设计</summary>
-  1. countryTrend 表无法忽略重复数据插入，可能为键/索引冲突
+  1. countryTrend 表无法忽略重复数据插入，可能为键/索引冲突 </p>
   2. 主键未使用 '表名_id'
 </details>
 
