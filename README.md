@@ -1,7 +1,7 @@
 # 疫情可视化系统
 ## 介绍
 
-使用了SpringCloud Eureka + Hadoop MapReude 共同处理数据
+使用了SpringCloud Eureka + Hadoop MapReduce 共同处理数据
 
 ## 项目目标
 
